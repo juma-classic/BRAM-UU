@@ -15,5 +15,5 @@ export const AUTH_CONFIG = {
     PATEL_SIGNALS_STORAGE_KEY: 'patel_signals_access_granted',
 
     // Contact information for access
-    CONTACT_INFO: 'Contact Leila Fx for access credentials',
+    CONTACT_INFO: 'Contact Bram FX for access credentials',
 } as const;

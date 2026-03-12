@@ -15,7 +15,7 @@ export const TradersDenLoader: React.FC<TradersDenLoaderProps> = ({ onLoadComple
         'Initializing Trading Core...',
         'Synchronizing Market Algorithms...',
         'Calibrating Trading Mechanisms...',
-        'Access Granted. Welcome to Leila Fx.',
+        'Access Granted. Welcome to Bram FX.',
     ];
 
 
@@ -143,10 +143,54 @@ export const TradersDenLoader: React.FC<TradersDenLoaderProps> = ({ onLoadComple
 
                 {/* App Logo/Name */}
                 <div className='logo-section'>
-                    <h1 className='logo-title'>
-                        <span className='logo-mozaic'>LEILA</span>
-                        <span className='logo-trading'>FX</span>
-                    </h1>
+                    <div className='svg-logo-container'>
+                        <svg width="200" height="80" viewBox="0 0 200 80" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <linearGradient id="bramGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style={{stopColor:"#2563eb", stopOpacity:1}} />
+                                    <stop offset="50%" style={{stopColor:"#3b82f6", stopOpacity:1}} />
+                                    <stop offset="100%" style={{stopColor:"#1d4ed8", stopOpacity:1}} />
+                                </linearGradient>
+                                <linearGradient id="fxGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style={{stopColor:"#10b981", stopOpacity:1}} />
+                                    <stop offset="50%" style={{stopColor:"#059669", stopOpacity:1}} />
+                                    <stop offset="100%" style={{stopColor:"#047857", stopOpacity:1}} />
+                                </linearGradient>
+                                <filter id="glow">
+                                    <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+                                    <feMerge> 
+                                        <feMergeNode in="coloredBlur"/>
+                                        <feMergeNode in="SourceGraphic"/>
+                                    </feMerge>
+                                </filter>
+                            </defs>
+                            
+                            {/* Background geometric pattern */}
+                            <rect x="0" y="0" width="200" height="80" fill="url(#bramGradient)" opacity="0.1" rx="8"/>
+                            
+                            {/* BRAM text */}
+                            <text x="20" y="50" fontFamily="Arial, sans-serif" fontSize="32" fontWeight="bold" 
+                                  fill="url(#bramGradient)" filter="url(#glow)">BRAM</text>
+                            
+                            {/* FX text */}
+                            <text x="130" y="50" fontFamily="Arial, sans-serif" fontSize="32" fontWeight="bold" 
+                                  fill="url(#fxGradient)" filter="url(#glow)">FX</text>
+                            
+                            {/* Decorative elements */}
+                            <circle cx="115" cy="25" r="3" fill="#2563eb" opacity="0.6">
+                                <animate attributeName="opacity" values="0.6;1;0.6" dur="2s" repeatCount="indefinite"/>
+                            </circle>
+                            <circle cx="115" cy="55" r="3" fill="#10b981" opacity="0.6">
+                                <animate attributeName="opacity" values="0.6;1;0.6" dur="2s" repeatCount="indefinite" begin="1s"/>
+                            </circle>
+                            
+                            {/* Trading chart line */}
+                            <path d="M 15 65 L 30 60 L 45 55 L 60 50 L 75 45 L 90 40 L 105 35 L 120 40 L 135 45 L 150 40 L 165 35 L 180 30" 
+                                  stroke="#2563eb" strokeWidth="2" fill="none" opacity="0.7">
+                                <animate attributeName="stroke-dasharray" values="0,200;200,0" dur="3s" repeatCount="indefinite"/>
+                            </path>
+                        </svg>
+                    </div>
                     <p className='logo-subtitle'>Professional Trading Platform</p>
                 </div>
 

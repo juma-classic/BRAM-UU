@@ -1,8 +1,8 @@
 {
-    "name": "Leila Fx",
-    "short_name": "Leila Fx",
+    "name": "Bram FX",
+    "short_name": "Bram FX",
     "theme_color": "#14b8a6",
-    "description": "Professional automated trading platform - Reliable trading tools by Leila Fx.",
+    "description": "Professional automated trading platform - Reliable trading tools by Bram FX.",
     "background_color": "#0f1419",
     "display": "standalone",
     "start_url": "/",
