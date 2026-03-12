@@ -673,31 +673,11 @@ const AppWrapper = observer(() => {
     useEffect(() => {
         const fetchBots = async () => {
             const botFiles = [
-                'States Digit Switcher.xml',
-                'Profit Pilot.xml',
+                // Core Bots
                 'PATEL (with Entry).xml',
-                'Auto differ recovery over under.xml',
-                'dollar_flipper.xml',
-                'UnderoverAutoswitch.xml',
-                '_Over 1 under 8 Recovery Even & Odd 2026 💵💯 (5).xml',
-                '$Dollar printer .xml',
-                'AUTO C4 VOLT 🇬🇧 2 🇬🇧 AI PREMIUM ROBOT  (2) (1).xml',
-                'Auto Leila Bot.xml',
-                'Flipping-Tool-2026 - Rich Trader (1).xml',
-                'LEILA AI PRO v1.xml',
-                'Leila Digit Switcher.xml',
-                'Leila Over.xml',
-                'Over 3 Delirium by Rich Trader.xml',
-                'Over-Killer by Leila.xml',
-                'Over-Pro by Leila.xml',
-                'Random LDP Differ - Rich Trader.xml',
                 'Raziel Over Under.xml',
-                'Speed Auto Bot🦷.xml',
-                'Under 8 promax by Leila.xml',
-                'Under Killer 2026.xml',
-                'Scaling Over Bot.xml',
-                'Scaling Under Bot.xml',
-                // 11 New Bots Added
+                
+                // New Bram FX Bots Collection
                 '2-poerverty keller.xml',
                 'AUTO Even Odd AI By Bram (1).xml',
                 'AUTO Even Odd AI By Bram.xml',
