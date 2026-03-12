@@ -377,15 +377,15 @@ const ModernLoader: React.FC<ModernLoaderProps> = ({ onFinish }) => {
                     >
                         <defs>
                             <linearGradient id="metalGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                                <stop offset="0%" style={{stopColor:"#4a90e2", stopOpacity:1}} />
-                                <stop offset="30%" style={{stopColor:"#357abd", stopOpacity:1}} />
-                                <stop offset="70%" style={{stopColor:"#1e5f99", stopOpacity:1}} />
-                                <stop offset="100%" style={{stopColor:"#0d4f8c", stopOpacity:1}} />
+                                <stop offset="0%" stopColor="#4a90e2" stopOpacity="1" />
+                                <stop offset="30%" stopColor="#357abd" stopOpacity="1" />
+                                <stop offset="70%" stopColor="#1e5f99" stopOpacity="1" />
+                                <stop offset="100%" stopColor="#0d4f8c" stopOpacity="1" />
                             </linearGradient>
                             <linearGradient id="accentGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                                <stop offset="0%" style={{stopColor:"#10b981", stopOpacity:1}} />
-                                <stop offset="50%" style={{stopColor:"#059669", stopOpacity:1}} />
-                                <stop offset="100%" style={{stopColor:"#047857", stopOpacity:1}} />
+                                <stop offset="0%" stopColor="#10b981" stopOpacity="1" />
+                                <stop offset="50%" stopColor="#059669" stopOpacity="1" />
+                                <stop offset="100%" stopColor="#047857" stopOpacity="1" />
                             </linearGradient>
                             <filter id="mechanicalGlow">
                                 <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
@@ -407,56 +407,25 @@ const ModernLoader: React.FC<ModernLoaderProps> = ({ onFinish }) => {
                                     repeatCount="indefinite"
                                 />
                             </circle>
-                            {/* Gear teeth */}
-                            {Array.from({length: 12}).map((_, i) => (
-                                <rect 
-                                    key={i}
-                                    x="58" 
-                                    y="5" 
-                                    width="4" 
-                                    height="8" 
-                                    fill="url(#metalGradient)"
-                                    transform={`rotate(${i * 30} 60 60)`}
-                                >
-                                    <animateTransform 
-                                        attributeName="transform" 
-                                        type="rotate" 
-                                        values={`${i * 30} 60 60;${i * 30 + 360} 60 60`}
-                                        dur="20s" 
-                                        repeatCount="indefinite"
-                                    />
-                                </rect>
-                            ))}
-                        </g>
-
-                        {/* Middle mechanical ring */}
-                        <g className="middle-gear-ring">
-                            <circle cx="60" cy="60" r="45" fill="none" stroke="url(#accentGradient)" strokeWidth="1.5" opacity="0.8">
+                            {/* Simplified gear teeth */}
+                            <rect x="58" y="5" width="4" height="8" fill="url(#metalGradient)">
                                 <animateTransform 
                                     attributeName="transform" 
                                     type="rotate" 
-                                    values="360 60 60;0 60 60" 
-                                    dur="15s" 
+                                    values="0 60 60;360 60 60"
+                                    dur="20s" 
                                     repeatCount="indefinite"
                                 />
-                            </circle>
-                            {/* Inner gear teeth */}
-                            {Array.from({length: 8}).map((_, i) => (
-                                <polygon 
-                                    key={i}
-                                    points="60,15 62,20 58,20" 
-                                    fill="url(#accentGradient)"
-                                    transform={`rotate(${i * 45} 60 60)`}
-                                >
-                                    <animateTransform 
-                                        attributeName="transform" 
-                                        type="rotate" 
-                                        values={`${i * 45 + 360} 60 60;${i * 45} 60 60`}
-                                        dur="15s" 
-                                        repeatCount="indefinite"
-                                    />
-                                </polygon>
-                            ))}
+                            </rect>
+                            <rect x="58" y="107" width="4" height="8" fill="url(#metalGradient)">
+                                <animateTransform 
+                                    attributeName="transform" 
+                                    type="rotate" 
+                                    values="0 60 60;360 60 60"
+                                    dur="20s" 
+                                    repeatCount="indefinite"
+                                />
+                            </rect>
                         </g>
 
                         {/* Central mechanical housing */}
@@ -468,45 +437,25 @@ const ModernLoader: React.FC<ModernLoaderProps> = ({ onFinish }) => {
                             {/* B vertical bar */}
                             <rect x="40" y="35" width="6" height="50" fill="#ffffff" rx="1"/>
                             
-                            {/* B top horizontal bar with mechanical joint */}
+                            {/* B top horizontal bar */}
                             <rect x="46" y="35" width="20" height="6" fill="#ffffff" rx="1"/>
                             <circle cx="66" cy="38" r="3" fill="url(#accentGradient)">
                                 <animate attributeName="r" values="3;4;3" dur="2s" repeatCount="indefinite"/>
                             </circle>
                             
-                            {/* B middle horizontal bar with gear */}
+                            {/* B middle horizontal bar */}
                             <rect x="46" y="57" width="18" height="6" fill="#ffffff" rx="1"/>
-                            <g transform="translate(64, 60)">
-                                <circle r="4" fill="url(#metalGradient)" stroke="#10b981" strokeWidth="1">
-                                    <animateTransform 
-                                        attributeName="transform" 
-                                        type="rotate" 
-                                        values="0;360" 
-                                        dur="3s" 
-                                        repeatCount="indefinite"
-                                    />
-                                </circle>
-                                {/* Small gear teeth */}
-                                {Array.from({length: 6}).map((_, i) => (
-                                    <line 
-                                        key={i}
-                                        x1="0" y1="-4" x2="0" y2="-5" 
-                                        stroke="#10b981" 
-                                        strokeWidth="1"
-                                        transform={`rotate(${i * 60})`}
-                                    >
-                                        <animateTransform 
-                                            attributeName="transform" 
-                                            type="rotate" 
-                                            values={`${i * 60};${i * 60 + 360}`}
-                                            dur="3s" 
-                                            repeatCount="indefinite"
-                                        />
-                                    </line>
-                                ))}
-                            </g>
+                            <circle cx="64" cy="60" r="4" fill="url(#metalGradient)" stroke="#10b981" strokeWidth="1">
+                                <animateTransform 
+                                    attributeName="transform" 
+                                    type="rotate" 
+                                    values="0 64 60;360 64 60" 
+                                    dur="3s" 
+                                    repeatCount="indefinite"
+                                />
+                            </circle>
                             
-                            {/* B bottom horizontal bar with piston */}
+                            {/* B bottom horizontal bar */}
                             <rect x="46" y="79" width="20" height="6" fill="#ffffff" rx="1"/>
                             <rect x="66" y="80" width="8" height="4" fill="url(#accentGradient)" rx="1">
                                 <animateTransform 
@@ -521,82 +470,64 @@ const ModernLoader: React.FC<ModernLoaderProps> = ({ onFinish }) => {
 
                         {/* Letter F - Right side */}
                         <g className="letter-f" filter="url(#mechanicalGlow)">
-                            {/* F vertical bar with hydraulic effect */}
+                            {/* F vertical bar */}
                             <rect x="74" y="35" width="6" height="50" fill="#ffffff" rx="1">
                                 <animate attributeName="height" values="50;52;50" dur="4s" repeatCount="indefinite"/>
                             </rect>
                             
-                            {/* F top horizontal bar with rotating connector */}
+                            {/* F top horizontal bar */}
                             <rect x="80" y="35" width="18" height="6" fill="#ffffff" rx="1"/>
-                            <g transform="translate(98, 38)">
-                                <circle r="3" fill="url(#metalGradient)" stroke="#4a90e2" strokeWidth="1">
-                                    <animateTransform 
-                                        attributeName="transform" 
-                                        type="rotate" 
-                                        values="0;-360" 
-                                        dur="4s" 
-                                        repeatCount="indefinite"
-                                    />
-                                </circle>
-                                <rect x="-1" y="-4" width="2" height="8" fill="#4a90e2">
-                                    <animateTransform 
-                                        attributeName="transform" 
-                                        type="rotate" 
-                                        values="0;-360" 
-                                        dur="4s" 
-                                        repeatCount="indefinite"
-                                    />
-                                </rect>
-                            </g>
+                            <circle cx="98" cy="38" r="3" fill="url(#metalGradient)" stroke="#4a90e2" strokeWidth="1">
+                                <animateTransform 
+                                    attributeName="transform" 
+                                    type="rotate" 
+                                    values="0 98 38;-360 98 38" 
+                                    dur="4s" 
+                                    repeatCount="indefinite"
+                                />
+                            </circle>
                             
-                            {/* F middle horizontal bar with spring mechanism */}
+                            {/* F middle horizontal bar */}
                             <rect x="80" y="57" width="15" height="6" fill="#ffffff" rx="1"/>
-                            <g transform="translate(95, 60)">
-                                {/* Spring coils */}
-                                <path 
-                                    d="M0,0 Q2,-2 4,0 Q6,2 8,0 Q10,-2 12,0" 
-                                    stroke="url(#accentGradient)" 
-                                    strokeWidth="2" 
-                                    fill="none"
-                                >
-                                    <animateTransform 
-                                        attributeName="transform" 
-                                        type="scale" 
-                                        values="1,1;1.2,0.8;1,1" 
-                                        dur="1.5s" 
-                                        repeatCount="indefinite"
-                                    />
-                                </path>
-                            </g>
                         </g>
 
                         {/* Central power core */}
-                        <g transform="translate(60, 60)">
-                            <circle r="8" fill="url(#accentGradient)" opacity="0.8">
-                                <animate attributeName="r" values="8;10;8" dur="2s" repeatCount="indefinite"/>
-                                <animate attributeName="opacity" values="0.8;1;0.8" dur="2s" repeatCount="indefinite"/>
-                            </circle>
-                            <circle r="4" fill="#ffffff" opacity="0.9">
-                                <animate attributeName="opacity" values="0.9;0.5;0.9" dur="1s" repeatCount="indefinite"/>
-                            </circle>
-                        </g>
+                        <circle cx="60" cy="60" r="8" fill="url(#accentGradient)" opacity="0.8">
+                            <animate attributeName="r" values="8;10;8" dur="2s" repeatCount="indefinite"/>
+                            <animate attributeName="opacity" values="0.8;1;0.8" dur="2s" repeatCount="indefinite"/>
+                        </circle>
+                        <circle cx="60" cy="60" r="4" fill="#ffffff" opacity="0.9">
+                            <animate attributeName="opacity" values="0.9;0.5;0.9" dur="1s" repeatCount="indefinite"/>
+                        </circle>
 
-                        {/* Orbiting mechanical elements */}
-                        <g className="orbiting-elements">
-                            {Array.from({length: 3}).map((_, i) => (
-                                <g key={i} transform={`rotate(${i * 120} 60 60)`}>
-                                    <circle cx="60" cy="25" r="2" fill="url(#accentGradient)">
-                                        <animateTransform 
-                                            attributeName="transform" 
-                                            type="rotate" 
-                                            values={`${i * 120} 60 60;${i * 120 + 360} 60 60`}
-                                            dur="8s" 
-                                            repeatCount="indefinite"
-                                        />
-                                    </circle>
-                                </g>
-                            ))}
-                        </g>
+                        {/* Orbiting elements */}
+                        <circle cx="60" cy="25" r="2" fill="url(#accentGradient)">
+                            <animateTransform 
+                                attributeName="transform" 
+                                type="rotate" 
+                                values="0 60 60;360 60 60"
+                                dur="8s" 
+                                repeatCount="indefinite"
+                            />
+                        </circle>
+                        <circle cx="60" cy="95" r="2" fill="url(#accentGradient)">
+                            <animateTransform 
+                                attributeName="transform" 
+                                type="rotate" 
+                                values="120 60 60;480 60 60"
+                                dur="8s" 
+                                repeatCount="indefinite"
+                            />
+                        </circle>
+                        <circle cx="25" cy="60" r="2" fill="url(#accentGradient)">
+                            <animateTransform 
+                                attributeName="transform" 
+                                type="rotate" 
+                                values="240 60 60;600 60 60"
+                                dur="8s" 
+                                repeatCount="indefinite"
+                            />
+                        </circle>
                     </svg>
                     <div className='zeus-loader__logo-glow' />
                     <div className='zeus-loader__logo-glow zeus-loader__logo-glow--secondary' />

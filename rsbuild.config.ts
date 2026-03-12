@@ -159,6 +159,10 @@ export default defineConfig({
                         },
                     },
                 },
+                // Add memory optimization
+                minimize: true,
+                usedExports: true,
+                sideEffects: false,
             },
             experiments: {
                 asyncWebAssembly: true,
