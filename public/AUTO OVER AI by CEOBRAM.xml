@@ -4,7 +4,6 @@
     <variable id="-!Wj|k8z+.[K$:$#FDIU">2nd Over Digit</variable>
     <variable id="iR9MIP@+P-(|!EWdy:H4">Amount</variable>
     <variable id="+u,_RDUj,jI#1Yf=H=Cy">Profit</variable>
-    <variable id="StopLoss_Variable_ID">Stop Loss</variable>
     <variable id="$;J5qa1(Z)Zv:3TgMwy-">Ticks to analyze</variable>
     <variable id="7]n|{wwMw0wy;^*J!=IS">Mart Splits</variable>
     <variable id="MNd!`VJ9+3(kw?+z`d/#">% Win Per Stake</variable>
@@ -109,19 +108,19 @@
     <variable id="0vhV{u[rAV=(N}*xfudU">Over 7 /Under 8 Calculate</variable>
     <variable id="%PHI%sK5d,5mE)mS7y+w">Over 8 /Under 9 Calculate</variable>
   </variables>
-  <block type="trade_definition" id=",j5{bLt[QsVm3zEJd![R" deletable="false" x="0" y="110">
+  <block type="trade_definition" id=",j5{bLt[QsVm3zEJd![R" deletable="false" x="0" y="60">
     <statement name="TRADE_OPTIONS">
       <block type="trade_definition_market" id="m`m3u==2kK*tDx~C)|ga" deletable="false" movable="false">
         <field name="MARKET_LIST">synthetic_index</field>
         <field name="SUBMARKET_LIST">random_index</field>
-        <field name="SYMBOL_LIST">R_100</field>
+        <field name="SYMBOL_LIST">1HZ50V</field>
         <next>
           <block type="trade_definition_tradetype" id="w(7_RYB{|y.)MUB9fBxm" deletable="false" movable="false">
             <field name="TRADETYPECAT_LIST">digits</field>
             <field name="TRADETYPE_LIST">overunder</field>
             <next>
               <block type="trade_definition_contracttype" id="EivH8f=7Je~ld}AkTiCx" deletable="false" movable="false">
-                <field name="TYPE_LIST">both</field>
+                <field name="TYPE_LIST">DIGITOVER</field>
                 <next>
                   <block type="trade_definition_candleinterval" id=".{`i-U_iqCV4uCZqe-GG" deletable="false" movable="false">
                     <field name="CANDLEINTERVAL_LIST">60</field>
@@ -150,13 +149,11 @@
           <arg name="2nd Over Digit"></arg>
           <arg name="Amount"></arg>
           <arg name="Profit"></arg>
-          <arg name="Stop Loss"></arg>
           <arg name="Ticks to analyze"></arg>
           <arg name="Mart Splits"></arg>
           <arg name="% Win Per Stake"></arg>
           <arg name="Martingale Level"></arg>
         </mutation>
-        <data>%q[f`)Z7]5#ljG6,Jt!c</data>
         <value name="ARG0">
           <block type="math_number" id="7mN+EBk$`y0+#`-qh_#.">
             <field name="NUM">2</field>
@@ -164,40 +161,35 @@
         </value>
         <value name="ARG1">
           <block type="math_number" id="3g}V5OBv3si8jNYb:n/*">
-            <field name="NUM">4</field>
+            <field name="NUM">3</field>
           </block>
         </value>
         <value name="ARG2">
           <block type="math_number" id="F.(2fw#!li@o;{:$`MH3">
-            <field name="NUM">1</field>
+            <field name="NUM">2.55</field>
           </block>
         </value>
         <value name="ARG3">
           <block type="math_number" id="PhJpgVXPrsSA6PU0NbDM">
-            <field name="NUM">100</field>
+            <field name="NUM">10</field>
           </block>
         </value>
         <value name="ARG4">
-          <block type="math_number" id="StopLossValue_ID">
-            <field name="NUM">-50</field>
-          </block>
-        </value>
-        <value name="ARG5">
           <block type="math_number" id="(wO=!;EV6CV2-H3Yu;1g">
             <field name="NUM">15</field>
           </block>
         </value>
-        <value name="ARG6">
+        <value name="ARG5">
           <block type="math_number" id="9l*RBIfD*O=jWkkkW6:,">
             <field name="NUM">1</field>
           </block>
         </value>
-        <value name="ARG7">
+        <value name="ARG6">
           <block type="math_number" id="1$!(PmQ^m7DN6HlwY#xc">
             <field name="NUM">80</field>
           </block>
         </value>
-        <value name="ARG8">
+        <value name="ARG7">
           <block type="math_number" id="([?;^IPnIW:9.N.$2:s^">
             <field name="NUM">1</field>
           </block>
@@ -342,7 +334,7 @@
       </block>
     </statement>
   </block>
-  <block type="after_purchase" id="x)}.`0_SBxJsheW92e1|" collapsed="true" x="1427" y="110">
+  <block type="after_purchase" id="x)}.`0_SBxJsheW92e1|" collapsed="true" x="1469" y="60">
     <statement name="AFTERPURCHASE_STACK">
       <block type="controls_if" id="UF%w0C}l|FumB_fw#H*X">
         <mutation xmlns="http://www.w3.org/1999/xhtml" elseif="1"></mutation>
@@ -697,7 +689,7 @@
                 </statement>
                 <next>
                   <block type="controls_if" id="g5-fa}@;7NPLejTucCet" collapsed="true">
-                    <mutation xmlns="http://www.w3.org/1999/xhtml" elseif="1" else="1"></mutation>
+                    <mutation xmlns="http://www.w3.org/1999/xhtml" else="1"></mutation>
                     <value name="IF0">
                       <block type="logic_compare" id="[_ik_a~B{?TwyMi0=h~c">
                         <field name="OP">GTE</field>
@@ -720,28 +712,6 @@
                         </value>
                       </block>
                     </statement>
-                    <value name="IF1">
-                      <block type="logic_compare" id="StopLossCheck_ID">
-                        <field name="OP">LTE</field>
-                        <value name="A">
-                          <block type="total_profit" id="StopLossTotalProfit_ID"></block>
-                        </value>
-                        <value name="B">
-                          <block type="variables_get" id="StopLossVar_ID">
-                            <field name="VAR" id="StopLoss_Variable_ID">Stop Loss</field>
-                          </block>
-                        </value>
-                      </block>
-                    </value>
-                    <statement name="DO1">
-                      <block type="text_print" id="StopLossPrint_ID">
-                        <value name="TEXT">
-                          <shadow type="text" id="StopLossText_ID">
-                            <field name="TEXT">🛑 Stop Loss Hit - Trading Stopped</field>
-                          </shadow>
-                        </value>
-                      </block>
-                    </statement>
                     <statement name="ELSE">
                       <block type="trade_again" id="]S[~m2_c@#gR^(IJugKi"></block>
                     </statement>
@@ -754,7 +724,7 @@
       </block>
     </statement>
   </block>
-  <block type="before_purchase" id="(CQ#Egi5`VMAY)iEJ#f@" deletable="false" x="0" y="1280">
+  <block type="before_purchase" id="(CQ#Egi5`VMAY)iEJ#f@" deletable="false" x="0" y="1200">
     <statement name="BEFOREPURCHASE_STACK">
       <block type="controls_if" id="z{R-O/ULc6h2_j@0~C3I">
         <value name="IF0">
@@ -2668,7 +2638,7 @@
                             </value>
                             <statement name="DO0">
                               <block type="purchase" id="$SPDO{!wYkWh;tEN!*5z">
-                                <field name="PURCHASE_LIST">DIGITUNDER</field>
+                                <field name="PURCHASE_LIST">DIGITOVER</field>
                               </block>
                             </statement>
                           </block>
@@ -2684,7 +2654,7 @@
       </block>
     </statement>
   </block>
-  <block type="tick_analysis" id="3qI700tp5}D0#a89X4MS" x="0" y="4640">
+  <block type="tick_analysis" id="3qI700tp5}D0#a89X4MS" x="0" y="4576">
     <statement name="TICKANALYSIS_STACK">
       <block type="variables_set" id="^;GA0EHW^%H)@`m|7g+c" collapsed="true">
         <field name="VAR" id="dp+9b0ztP^fZfWau3LXk">Digits analysed</field>
@@ -5595,13 +5565,12 @@
       </block>
     </statement>
   </block>
-  <block type="procedures_defnoreturn" id="%q[f`)Z7]5#ljG6,Jt!c" collapsed="true" x="0" y="7936">
+  <block type="procedures_defnoreturn" id="%q[f`)Z7]5#ljG6,Jt!c" collapsed="true" x="0" y="7872">
     <mutation xmlns="http://www.w3.org/1999/xhtml">
       <arg name="1st Over Digit" varid="KLVzVBdhe~-(,`|V)4x%"></arg>
       <arg name="2nd Over Digit" varid="-!Wj|k8z+.[K$:$#FDIU"></arg>
       <arg name="Amount" varid="iR9MIP@+P-(|!EWdy:H4"></arg>
       <arg name="Profit" varid="+u,_RDUj,jI#1Yf=H=Cy"></arg>
-      <arg name="Stop Loss" varid="StopLoss_Variable_ID"></arg>
       <arg name="Ticks to analyze" varid="$;J5qa1(Z)Zv:3TgMwy-"></arg>
       <arg name="Mart Splits" varid="7]n|{wwMw0wy;^*J!=IS"></arg>
       <arg name="% Win Per Stake" varid="MNd!`VJ9+3(kw?+z`d/#"></arg>
@@ -5683,14 +5652,6 @@
                                       </block>
                                     </value>
                                     <next>
-                                      <block type="variables_set" id="StopLossInit_ID">
-                                        <field name="VAR" id="StopLoss_Variable_ID">Stop Loss</field>
-                                        <value name="VALUE">
-                                          <block type="variables_get" id="StopLossGet_ID">
-                                            <field name="VAR" id="StopLoss_Variable_ID">Stop Loss</field>
-                                          </block>
-                                        </value>
-                                        <next>
                                       <block type="variables_set" id="]Bp___UkJ86PN}I;4t?+">
                                         <field name="VAR" id="q3r~=*L8ZS1f);P^G!:L">Initial Stake</field>
                                         <value name="VALUE">
@@ -5757,7 +5718,7 @@
       </block>
     </statement>
   </block>
-  <block type="tick_analysis" id="jukM*5McDUw(}7wNd_dD" x="0" y="8032">
+  <block type="tick_analysis" id="jukM*5McDUw(}7wNd_dD" x="0" y="7968">
     <statement name="TICKANALYSIS_STACK">
       <block type="text_join" id="II?@q@;yALTn6QwG|0qF">
         <field name="VARIABLE" id="Xq[0UdXIN2E_RE=9i^Ca">text</field>

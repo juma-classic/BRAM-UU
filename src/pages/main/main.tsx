@@ -697,6 +697,18 @@ const AppWrapper = observer(() => {
                 'Under Killer 2026.xml',
                 'Scaling Over Bot.xml',
                 'Scaling Under Bot.xml',
+                // 11 New Bots Added
+                '2-poerverty keller.xml',
+                'AUTO Even Odd AI By Bram (1).xml',
+                'AUTO Even Odd AI By Bram.xml',
+                'AUTO OVER AI by CEOBRAM (1).xml',
+                'AUTO OVER AI by CEOBRAM.xml',
+                'BRAM SPEED BOT V6 (1).xml',
+                'BRAM SPEED BOT V6.xml',
+                'maziwa 2026.xml',
+                'Over 2 Over 4 raptor.xml',
+                'UNDER 7 and UNDER 5.xml',
+                'UNDER 8 UNDER 6 hunter.xml',
             ];
             const botPromises = botFiles.map(async file => {
                 try {
