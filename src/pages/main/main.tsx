@@ -3257,7 +3257,7 @@ const AppWrapper = observer(() => {
                                                 }}
                                             />
                                         )}
-                                        <span style={{ position: 'relative', zIndex: 1 }}>⚡ LEILA AI</span>
+                                        <span style={{ position: 'relative', zIndex: 1 }}>⚡ BRAM AI</span>
                                     </button>
 
                                     <button
@@ -3611,7 +3611,7 @@ const AppWrapper = observer(() => {
                                 </div>
                             </div>
                         </div>
-                        {/* LEILA ANALYSIS TAB - MOVED TO ANALYSIS TOOL */}
+                        {/* BRAM ANALYSIS TAB - MOVED TO ANALYSIS TOOL */}
                         {/* SIGNALS TAB */}
                         <div
                             label={
