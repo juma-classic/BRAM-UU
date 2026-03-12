@@ -35,6 +35,18 @@ export default defineConfig({
         bundleAnalyze: process.env.BUNDLE_ANALYZE ? {} : undefined,
         chunkLoadTimeout: 60000, // 60 seconds timeout for chunk loading
     },
+    resolve: {
+        alias: {
+            react: path.resolve('./node_modules/react'),
+            'react-dom': path.resolve('./node_modules/react-dom'),
+            '@/external': path.resolve(__dirname, './src/external'),
+            '@/components': path.resolve(__dirname, './src/components'),
+            '@/hooks': path.resolve(__dirname, './src/hooks'),
+            '@/utils': path.resolve(__dirname, './src/utils'),
+            '@/constants': path.resolve(__dirname, './src/constants'),
+            '@/stores': path.resolve(__dirname, './src/stores'),
+        },
+    },
     source: {
         entry: {
             index: './src/main.tsx',
@@ -60,16 +72,6 @@ export default defineConfig({
                 GROWTHBOOK_CLIENT_KEY: JSON.stringify(process.env.GROWTHBOOK_CLIENT_KEY),
                 GROWTHBOOK_DECRYPTION_KEY: JSON.stringify(process.env.GROWTHBOOK_DECRYPTION_KEY),
             },
-        },
-        alias: {
-            react: path.resolve('./node_modules/react'),
-            'react-dom': path.resolve('./node_modules/react-dom'),
-            '@/external': path.resolve(__dirname, './src/external'),
-            '@/components': path.resolve(__dirname, './src/components'),
-            '@/hooks': path.resolve(__dirname, './src/hooks'),
-            '@/utils': path.resolve(__dirname, './src/utils'),
-            '@/constants': path.resolve(__dirname, './src/constants'),
-            '@/stores': path.resolve(__dirname, './src/stores'),
         },
     },
     output: {
@@ -166,11 +168,6 @@ export default defineConfig({
             },
             experiments: {
                 asyncWebAssembly: true,
-            },
-            devServer: {
-                client: {
-                    webSocketURL: 'auto://0.0.0.0:0/ws',
-                },
             },
         },
     },

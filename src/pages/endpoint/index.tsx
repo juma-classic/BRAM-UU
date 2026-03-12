@@ -63,7 +63,7 @@ const Endpoint = () => {
                         onClick={() => {
                             const { server_url, app_id } = getDefaultAppIdAndUrl();
                             localStorage.setItem(LocalStorageConstants.configServerURL, server_url);
-                            localStorage.setItem(LocalStorageConstants.configAppId, 80836.toString());
+                            localStorage.setItem(LocalStorageConstants.configAppId, '80836');
 
                             formik.resetForm({
                                 values: {
