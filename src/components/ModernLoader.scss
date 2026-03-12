@@ -95,6 +95,25 @@
             height: auto;
             filter: drop-shadow(0 0 30px rgba(59, 130, 246, 0.6)) 
                     drop-shadow(0 0 60px rgba(30, 64, 175, 0.4));
+            
+            // Enhanced mechanical SVG styling
+            svg {
+                .outer-gear-ring {
+                    filter: drop-shadow(0 0 5px rgba(74, 144, 226, 0.8));
+                }
+                
+                .middle-gear-ring {
+                    filter: drop-shadow(0 0 3px rgba(16, 185, 129, 0.8));
+                }
+                
+                .letter-b, .letter-f {
+                    filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.9));
+                }
+                
+                .orbiting-elements circle {
+                    filter: drop-shadow(0 0 4px rgba(16, 185, 129, 1));
+                }
+            }
         }
     }
 
